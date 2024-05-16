@@ -53,8 +53,35 @@ public class UserViewer {
             System.out.println("잘못 입력하셨습니다. 로그인 정보를 다시 확인해주세요");
         }
     }
+
     //register();
-    private void register(){
+    private void register() {
+        //회원가입 안내 문구
+        String answer = ScannerUtil.nextLine(scanner,"회원가입 하시겠습니까? Y/N");
+        if (answer.equalsIgnoreCase("Y")) {
+            // 회원가입 절차
+            // 아이디 비밀번호를 저장할 String - model 에도 있는지 확인해야함.
+            // 아이디 저장
+            String message;
+            message = "사용하실 아이디를 적어주세요";
+            String userId = ScannerUtil.nextLine(scanner,message);
+           //잘못입력했다는것도 해야함.
+
+            //userId 유효성 검사
+
+            // 비밀번호 저장
+            message = "사용하실 비밀번호를 적어주세요";
+            String userPassword = ScannerUtil.nextLine(scanner,message);
+            //userPassword 유효성 검사
+
+
+        } else {
+            // 리스트로 돌아가기 N
+            showIndex();
+        }
+
+
+
 
     }
 }
