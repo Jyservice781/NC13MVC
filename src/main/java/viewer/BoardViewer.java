@@ -1,9 +1,11 @@
 package viewer;
 
 import controller.BoardController;
+import controller.ReplyController;
 import controller.UserController;
 import lombok.Setter;
 import model.BoardDTO;
+import model.ReplyDTO;
 import model.UserDTO;
 import util.ScannerUtil;
 
@@ -16,9 +18,12 @@ public class BoardViewer {
     @Setter
     private UserController userController;
     @Setter
+    private ReplyController replyController;
+    @Setter
     private Scanner scanner;
     @Setter
     private UserDTO logIn;
+
     // 현재 로그인한 사람의 글을 받아오기 때문에
 
     public void showMenu() {
@@ -40,6 +45,7 @@ public class BoardViewer {
     private void insert() {
         BoardDTO boardDTO = new BoardDTO();
 
+
         boardDTO.setWriterId(logIn.getId());
 
         String message = "글의 제목을 입력해주세요.";
@@ -47,6 +53,7 @@ public class BoardViewer {
 
         message = "글의 내용을 입력해주세요";
         boardDTO.setContent(ScannerUtil.nextLine(scanner, message));
+
 
         boardController.insert(boardDTO);
     }
@@ -56,15 +63,12 @@ public class BoardViewer {
         for (BoardDTO b : list) {
             System.out.printf("%d. %s - %s\n", b.getId(), b.getTitle(), userController.selectNicknameById(b.getWriterId()));
         }
-
         String message = "상세보기할 글의 번호나 뒤로 가실려면 0을 입력해주세요.";
         int userChoice = ScannerUtil.nextInt(scanner, message);
-
         while (!boardController.validateInput(userChoice)) {
             System.out.println("잘못입력하셨습니다.");
             userChoice = ScannerUtil.nextInt(scanner, message);
         }
-
         if (userChoice != 0) {
             printOne(userChoice);
         }
@@ -72,6 +76,7 @@ public class BoardViewer {
 
     private void printOne(int id) {
         BoardDTO boardDTO = boardController.selectOne(id);
+
         System.out.println("========================================");
         System.out.println("제목: " + boardDTO.getTitle());
         System.out.println("글 번호: " + boardDTO.getId());
@@ -79,6 +84,7 @@ public class BoardViewer {
         System.out.println("----------------------------------------");
         System.out.println(boardDTO.getContent());
         System.out.println("========================================");
+
 
         // 작성자가 수정할 수 있도록 함.
         if (logIn.getId() == boardDTO.getWriterId()) {
@@ -95,6 +101,7 @@ public class BoardViewer {
             }
         } else {
             String message = "1. 뒤로가기";
+            //사용자의 행동에 제약을 가함.
             int userChoice = ScannerUtil.nextInt(scanner, message, 1, 1);
             printList();
         }
@@ -119,7 +126,7 @@ public class BoardViewer {
             message = "비밀번호를 입력해주세요";
             String password = ScannerUtil.nextLine(scanner, message);
 
-            if(password.equals(logIn.getPassword())){
+            if (password.equals(logIn.getPassword())) {
                 boardController.delete(id);
             }
             printList();

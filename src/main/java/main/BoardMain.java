@@ -1,8 +1,10 @@
 package main;
 
 import controller.BoardController;
+import controller.ReplyController;
 import controller.UserController;
 import viewer.BoardViewer;
+import viewer.ReplyViewer;
 import viewer.UserViewer;
 
 import java.util.Scanner;
@@ -15,10 +17,12 @@ public class BoardMain {
         // 각종 컨트롤러 클래스 객체
         UserController userController = new UserController();
         BoardController boardController = new BoardController();
+        ReplyController replyController = new ReplyController();
 
         // 각종 뷰어 클래스 객체
         UserViewer userViewer = new UserViewer();
         BoardViewer boardViewer = new BoardViewer();
+        ReplyViewer replyViewer = new ReplyViewer();
 
         // setter 를 사용한 의존성 주입
         userViewer.setScanner(scanner);
@@ -29,6 +33,7 @@ public class BoardMain {
         boardViewer.setScanner(scanner);
         boardViewer.setUserController(userController);
         boardViewer.setBoardController(boardController);
+        boardViewer.setReplyController(replyController);
 
         userViewer.showIndex();
     }

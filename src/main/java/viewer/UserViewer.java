@@ -160,7 +160,6 @@ public class UserViewer {
         if (answer.equalsIgnoreCase("Y")) {
             message = "비밀번호를 입력해주세요";
             String password = ScannerUtil.nextLine(scanner, message);
-
             if (password.equals(logIn.getPassword())) {
                 userController.delete(logIn.getId());
                 logIn = null;
@@ -186,6 +185,4 @@ public class UserViewer {
             System.out.println("기존 비밀번호와 틀려서 회원정보 수정을 할 수 없습니다.");
         }
     }
-
-
 }
