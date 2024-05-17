@@ -15,12 +15,10 @@ public class UserDTO {
         if (this == o) {
             return true;
         }
-
         if (o instanceof UserDTO) {
             UserDTO u = (UserDTO) o;
             return id == u.id;
         }
-
         return false;
     }
 }

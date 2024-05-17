@@ -1,6 +1,8 @@
 package main;
 
+import controller.BoardController;
 import controller.UserController;
+import viewer.BoardViewer;
 import viewer.UserViewer;
 
 import java.util.Scanner;
@@ -12,12 +14,22 @@ public class BoardMain {
 
         // 각종 컨트롤러 클래스 객체
         UserController userController = new UserController();
+        BoardController boardController = new BoardController();
 
         // 각종 뷰어 클래스 객체
         UserViewer userViewer = new UserViewer();
+        BoardViewer boardViewer = new BoardViewer();
 
         // setter 를 사용한 의존성 주입
         userViewer.setScanner(scanner);
         userViewer.setUserController(userController);
+        userViewer.setBoardViewer(boardViewer);
+
+        // 의존성이 주입됨.
+        boardViewer.setScanner(scanner);
+        boardViewer.setUserController(userController);
+        boardViewer.setBoardController(boardController);
+
+        userViewer.showIndex();
     }
 }

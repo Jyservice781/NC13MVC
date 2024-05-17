@@ -11,7 +11,7 @@ public class UserController {
     // 다음 입력될 회원의 번호를 저장할 int 필드
     private int nextId;
 
-    //생성자를 통해서 list
+    //생성자를 통해서 list - 회원 관련 정보를 가지고 있음
     public UserController() {
         list = new ArrayList<>();
         nextId = 1;
@@ -62,5 +62,12 @@ public class UserController {
             }
         }
         return null;
+    }
+
+    public String selectNicknameById(int id){
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(id);
+
+        return list.get(list.indexOf(userDTO)).getNickname();
     }
 }

@@ -57,7 +57,7 @@ public class StudentViewer {
         studentController.insert(s);
     }
 
-    //출력
+    //출력 혼자 해보려던것. 주말에 다시 만지기
  /*   private void printList() {
         StudentDTO s = new StudentDTO();
         if (studentController.selectAll().isEmpty()) {
