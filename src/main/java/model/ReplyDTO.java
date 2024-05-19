@@ -10,7 +10,9 @@ public class ReplyDTO {
     private int writerId;
     private int boardId;
 
+    // ==
     @Override
+    //  ArrayList 를 사용하기 위해서 equals의 재정의를 해줌
     public boolean equals(Object o) {
         if (this == o) {
             return true;

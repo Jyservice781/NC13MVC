@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class BoardMain {
     public static void main(String[] args) {
         // 입력에 사용할 Scanner 클래스 객체
+        // 연결된 클래스들의 값을 순환 시키는 용도.
         Scanner scanner = new Scanner(System.in);
 
         // 각종 컨트롤러 클래스 객체
@@ -34,6 +35,7 @@ public class BoardMain {
         boardViewer.setUserController(userController);
         boardViewer.setBoardController(boardController);
         boardViewer.setReplyController(replyController);
+        boardViewer.setReplyViewer(replyViewer);
 
         userViewer.showIndex();
     }

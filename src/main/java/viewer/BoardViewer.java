@@ -20,6 +20,8 @@ public class BoardViewer {
     @Setter
     private ReplyController replyController;
     @Setter
+    private ReplyViewer replyViewer;
+    @Setter
     private Scanner scanner;
     @Setter
     private UserDTO logIn;
