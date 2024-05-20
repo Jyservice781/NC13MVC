@@ -9,6 +9,7 @@ public class ReplyDTO {
     private String content;
     private int writerId;
     private int boardId;
+    private String postId;
 
     @Override
     public boolean equals(Object o) {

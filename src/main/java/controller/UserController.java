@@ -11,7 +11,9 @@ public class UserController {
     // 다음 입력될 회원의 번호를 저장할 int 필드
     private int nextId;
 
-    //생성자를 통해서 list - 회원 관련 정보를 가지고 있음
+    // 생성자를 통해서 list - 회원 관련 정보를 가지고 있음
+    // 클래스와 이름을 통일 시켜서 오버로드 사용. -> 같은 이름으로 다른 행동을 수행함 .
+    // 재사용성 측면에서 좋음.
     public UserController() {
         list = new ArrayList<>();
         nextId = 1;
@@ -67,7 +69,6 @@ public class UserController {
     public String selectNicknameById(int id){
         UserDTO userDTO = new UserDTO();
         userDTO.setId(id);
-
         return list.get(list.indexOf(userDTO)).getNickname();
     }
 }

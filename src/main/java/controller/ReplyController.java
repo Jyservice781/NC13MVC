@@ -28,6 +28,15 @@ public class ReplyController {
         return list;
     }
 
+    public ReplyDTO selectOne(int id){
+        ReplyDTO temp = new ReplyDTO();
+        temp.setId(id);
+        if(list.contains(temp)){
+            return list.get(list.indexOf(temp));
+        }
+        return null;
+    }
+
 
     // 입력한 사람이 댓글 수정
     //update()
@@ -42,7 +51,4 @@ public class ReplyController {
 
         list.remove(temp);
     }
-    //
-
-
 }

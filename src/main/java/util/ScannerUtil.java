@@ -21,7 +21,6 @@ public class ScannerUtil {
             System.out.println("숫자가 아닙니다.\n 다시 입력해주세요.");
             temp = nextLine(scanner, message);
         }
-
         // String을 int로 바꿀 때에는?
         // Integer.parseInt(String) 을 사용하면 된다.
 
@@ -47,7 +46,6 @@ public class ScannerUtil {
         if (temp.isEmpty()) {
             temp = scanner.nextLine();
         }
-
         return temp;
     }
 }

@@ -54,7 +54,6 @@ public class BoardViewer {
         message = "글의 내용을 입력해주세요";
         boardDTO.setContent(ScannerUtil.nextLine(scanner, message));
 
-
         boardController.insert(boardDTO);
     }
 
@@ -84,7 +83,8 @@ public class BoardViewer {
         System.out.println("----------------------------------------");
         System.out.println(boardDTO.getContent());
         System.out.println("========================================");
-
+        ReplyViewer replyViewer = new ReplyViewer();
+        replyViewer.replyMenu("");
 
         // 작성자가 수정할 수 있도록 함.
         if (logIn.getId() == boardDTO.getWriterId()) {
