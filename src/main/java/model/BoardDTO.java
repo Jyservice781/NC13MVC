@@ -2,6 +2,8 @@ package model;
 
 import lombok.Data;
 
+import java.util.Date;
+
 @Data
 public class BoardDTO {
 
@@ -9,6 +11,8 @@ public class BoardDTO {
     private String title;
     private String content;
     private int writerId;
+    private Date entryDate;
+    private Date modifyDate;
 
     @Override
     public boolean equals(Object o){
@@ -21,4 +25,5 @@ public class BoardDTO {
         }
         return false;
     }
+
 }

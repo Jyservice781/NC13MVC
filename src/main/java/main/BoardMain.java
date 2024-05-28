@@ -33,7 +33,6 @@ public class BoardMain {
         boardViewer.setScanner(scanner);
         boardViewer.setUserController(userController);
         boardViewer.setBoardController(boardController);
-        boardViewer.setReplyController(replyController);
 
         userViewer.showIndex();
     }

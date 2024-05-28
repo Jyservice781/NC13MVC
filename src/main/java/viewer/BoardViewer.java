@@ -3,6 +3,7 @@ package viewer;
 import controller.BoardController;
 import controller.ReplyController;
 import controller.UserController;
+import lombok.Getter;
 import lombok.Setter;
 import model.BoardDTO;
 import model.ReplyDTO;
@@ -18,12 +19,9 @@ public class BoardViewer {
     @Setter
     private UserController userController;
     @Setter
-    private ReplyController replyController;
-    @Setter
     private Scanner scanner;
     @Setter
     private UserDTO logIn;
-
     // 현재 로그인한 사람의 글을 받아오기 때문에
 
     public void showMenu() {
@@ -44,8 +42,6 @@ public class BoardViewer {
 
     private void insert() {
         BoardDTO boardDTO = new BoardDTO();
-
-
         boardDTO.setWriterId(logIn.getId());
 
         String message = "글의 제목을 입력해주세요.";
@@ -101,7 +97,6 @@ public class BoardViewer {
             }
         } else {
             String message = "1. 뒤로가기";
-            //사용자의 행동에 제약을 가함.
             int userChoice = ScannerUtil.nextInt(scanner, message, 1, 1);
             printList();
         }
