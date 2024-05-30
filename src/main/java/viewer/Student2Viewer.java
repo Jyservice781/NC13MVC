@@ -31,13 +31,6 @@ public class Student2Viewer {
         }
     }
 
-
-
-
-
-
-
-
     private void insertStudent(){
         // DB
         StudentDTO s = new StudentDTO();
@@ -60,4 +53,5 @@ public class Student2Viewer {
 
         student2Controller.insert(s);
     }
+
 }
